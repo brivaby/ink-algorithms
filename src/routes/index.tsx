@@ -35,6 +35,26 @@ import v6553 from "../assets/IMG_6553_3.mp4.asset.json";
 import v6553Poster from "../assets/IMG_6553_3-poster.jpg.asset.json";
 import vConv from "../assets/Convention_Presentation.mp4.asset.json";
 import vConvPoster from "../assets/Convention_Presentation-poster.jpg.asset.json";
+import v6992 from "../assets/IMG_6992.mp4.asset.json";
+import v6992Poster from "../assets/IMG_6992-poster.jpg.asset.json";
+import v6993 from "../assets/IMG_6993.mp4.asset.json";
+import v6993Poster from "../assets/IMG_6993-poster.jpg.asset.json";
+import v6995 from "../assets/IMG_6995.mp4.asset.json";
+import v6995Poster from "../assets/IMG_6995-poster.jpg.asset.json";
+import v6996 from "../assets/IMG_6996.mp4.asset.json";
+import v6996Poster from "../assets/IMG_6996-poster.jpg.asset.json";
+import v7066 from "../assets/IMG_7066.mp4.asset.json";
+import v7066Poster from "../assets/IMG_7066-poster.jpg.asset.json";
+import v7067 from "../assets/IMG_7067.mp4.asset.json";
+import v7067Poster from "../assets/IMG_7067-poster.jpg.asset.json";
+import v7078 from "../assets/IMG_7078.mp4.asset.json";
+import v7078Poster from "../assets/IMG_7078-poster.jpg.asset.json";
+import v7079 from "../assets/IMG_7079.mp4.asset.json";
+import v7079Poster from "../assets/IMG_7079-poster.jpg.asset.json";
+import v7088 from "../assets/IMG_7088.mp4.asset.json";
+import v7088Poster from "../assets/IMG_7088-poster.jpg.asset.json";
+import v7091 from "../assets/IMG_7091.mp4.asset.json";
+import v7091Poster from "../assets/IMG_7091-poster.jpg.asset.json";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -63,7 +83,17 @@ const media: MediaItem[] = [
   { id: "VID-03", type: "video", category: "Live Plotting Videos", image: v6342Poster.url, video: v6342.url, kicker: "V1 prototype · Axis check", title: "Version 1 Axis Check: Moving the Carriage by Hand", description: "Hand-moving the Version 1 carriage to check travel and alignment of the rails before a powered run.", meta: "Travel Check", metric: "99 × 224 mm Area", duration: "00:38" },
   { id: "VID-04", type: "video", category: "Live Plotting Videos", image: v6552Poster.url, video: v6552.url, kicker: "V2 rebuild · Pencil run", title: "Version 2 Plotting Run: Pencil Drawing on the Wooden Base", description: "The rebuilt Version 2 machine drawing with a pencil — belt-driven carriage, servo pen lift and the battery supply behind the frame.", meta: "Standalone Run", metric: "M3 / M5 Pen Lift", duration: "00:31" },
   { id: "VID-05", type: "video", category: "Live Plotting Videos", image: v6553Poster.url, video: v6553.url, kicker: "V2 rebuild · Line drawing", title: "Version 2 Line Drawing: Servo Lowering the Pencil", description: "A second Version 2 run showing the pencil being lowered by the servo and tracing lines across the sheet.", meta: "G1 Line Moves", metric: "SG90 Servo Lift", duration: "00:17" },
-  { id: "VID-06", type: "video", category: "Workshop & Assembly", image: vConvPoster.url, video: vConv.url, kicker: "Convention · Presentation", title: "Convention Presentation: Showing the Plotter to the Judges at the EASC", description: "Presenting the project at the convention beside the display board.", meta: "Public Demo", metric: "UGX 570,700 Build", duration: "00:29" },
+  { id: "VID-06", type: "video", category: "Live Plotting Videos", image: v6992Poster.url, video: v6992.url, kicker: "V2 testing · Setup", title: "Preparing the Rebuilt Plotter for a Drawing Run", description: "The team positions the paper and checks the rebuilt machine before beginning a controlled plotting test.", meta: "Run Preparation", metric: "Paper Alignment", duration: "00:18" },
+  { id: "VID-07", type: "video", category: "Live Plotting Videos", image: v6993Poster.url, video: v6993.url, kicker: "V2 testing · Control", title: "Operating the Plotter from the Control Board", description: "A close working view of the operator adjusting the controls while the machine is prepared for movement over the paper.", meta: "Control Test", metric: "Manual Setup", duration: "00:47" },
+  { id: "VID-08", type: "video", category: "Live Plotting Videos", image: v6995Poster.url, video: v6995.url, kicker: "V2 testing · Short run", title: "Short Plotting Test on the Wooden Base", description: "A brief test of the assembled plotter with the carriage positioned above a clean sheet on the wooden base.", meta: "Motion Test", metric: "Two-Axis Rig", duration: "00:12" },
+  { id: "VID-09", type: "video", category: "Live Plotting Videos", image: v6996Poster.url, video: v6996.url, kicker: "V2 testing · Overhead", title: "Overhead Check of the Plotting Area", description: "An overhead view records the control connection, carriage position and available drawing area during testing.", meta: "Area Check", metric: "99 × 224 mm", duration: "00:12" },
+  { id: "VID-10", type: "video", category: "Live Plotting Videos", image: v7066Poster.url, video: v7066.url, kicker: "V2 testing · Bench run", title: "Bench Test with the Complete Electronics Harness", description: "The rebuilt plotter is tested with its control electronics exposed beside the wooden frame for direct observation.", meta: "Bench Test", metric: "12 V Supply", duration: "00:51" },
+  { id: "VID-11", type: "video", category: "Live Plotting Videos", image: v7067Poster.url, video: v7067.url, kicker: "V2 testing · Adjustment", title: "Adjusting the Carriage Before the Next Run", description: "A hands-on adjustment at the carriage and paper bed prepares the mechanism for another plotting sequence.", meta: "Carriage Setup", metric: "GT2 Belt Drive", duration: "00:34" },
+  { id: "VID-12", type: "video", category: "Workshop & Assembly", image: v7078Poster.url, video: v7078.url, kicker: "Workshop · Fabrication", title: "Fabricating Wooden Parts for the Plotter", description: "Workshop footage documents hands-on shaping and fitting of wooden structural pieces used in the machine build.", meta: "Fabrication", metric: "Local Materials", duration: "00:51" },
+  { id: "VID-13", type: "video", category: "Workshop & Assembly", image: v7079Poster.url, video: v7079.url, kicker: "Workshop · Rail assembly", title: "Assembling the Guide Rod and Gantry Hardware", description: "The team handles the guide rods and matching frame pieces while preparing the mechanical gantry assembly.", meta: "Mechanical Build", metric: "Guide Rods", duration: "00:32" },
+  { id: "VID-14", type: "video", category: "Workshop & Assembly", image: v7088Poster.url, video: v7088.url, kicker: "Workshop · Team build", title: "Team Assembly Session at the Workbench", description: "The builders work together at the fabrication bench with tools, electronics and plotter parts arranged around them.", meta: "Team Build", metric: "Bench Assembly", duration: "00:32" },
+  { id: "VID-15", type: "video", category: "Workshop & Assembly", image: v7091Poster.url, video: v7091.url, kicker: "Workshop · Extended record", title: "Extended Workshop Build and Wiring Session", description: "A longer record of the team assembling, inspecting and wiring the plotter at the workbench during its later construction stage.", meta: "Build Record", metric: "05:32 Session", duration: "05:32" },
+  { id: "VID-16", type: "video", category: "Workshop & Assembly", image: vConvPoster.url, video: vConv.url, kicker: "Convention · Presentation", title: "Convention Presentation: Showing the Plotter to the Judges at the EASC", description: "Presenting the project at the convention beside the display board.", meta: "Public Demo", metric: "UGX 570,700 Build", duration: "00:29" },
   { id: "STILL-01", type: "photo", category: "Live Plotting Videos", image: img7073.url, kicker: "V1 prototype · First letters", title: "Version 1 First Plot: Servo Carriage Drawing Test Letters", description: "The first successful G-code run on the Version 1 frame — the SG90 servo lowers the pen and the Bresenham loop steps both axes through the letter paths.", meta: "G1 Line Moves", metric: "M3 / M5 Pen Lift" },
   { id: "STILL-02", type: "photo", category: "Sample Plot Outputs", image: img7074.url, kicker: "Pen-down close-up · V1", title: "Lettering Test: Pen Tracking the Vector Path", description: "Close capture of the pen following single-stroke letter outlines, verifying pen-lift timing and line continuity on plain paper.", meta: "Stroke Test", metric: "SG90 Servo Lift" },
   { id: "STILL-03", type: "photo", category: "Live Plotting Videos", image: img7075.url, kicker: "Calibration run · V1", title: "Dimensional Calibration: Measuring the Drawn Line", description: "The Section 11 calibration test — a commanded line is drawn, then measured on paper to confirm the microsteps-per-millimetre setting for the pulley in use.", meta: "Target: ±1 mm", metric: "80–100 µsteps/mm" },
@@ -104,7 +134,7 @@ function MediaVault() {
             <span className="flex size-8 items-center justify-center border border-console bg-console text-console-foreground"><Archive size={16}/></span>
             <span>INK & ALGORITHMS // DOC-LOG</span><ChevronRight size={12}/><span>Gallery & Media Archive</span><ChevronRight size={12}/><strong className="text-foreground">Hardware V2</strong>
           </div>
-          <div className="flex items-center gap-3 font-mono text-[10px] uppercase"><span className="size-2 animate-pulse rounded-full bg-primary"/><span>Feed: Verified Build Assets</span><span className="border-l border-border pl-3">Total Objects: 15</span></div>
+          <div className="flex items-center gap-3 font-mono text-[10px] uppercase"><span className="size-2 animate-pulse rounded-full bg-primary"/><span>Feed: Verified Build Assets</span><span className="border-l border-border pl-3">Total Objects: {media.length}</span></div>
         </div>
       </header>
 
