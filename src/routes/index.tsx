@@ -148,9 +148,13 @@ const filters = ["All Media", "Live Plotting Videos", "Workshop & Assembly", "El
 
 function MediaVault() {
   const [filter, setFilter] = useState("All Media");
+  const [versionFilter, setVersionFilter] = useState<"all" | "V1" | "V2">("all");
   const [selected, setSelected] = useState<MediaItem | null>(null);
-  const videos = media.filter((item) => item.type === "video" && (filter === "All Media" || item.category === filter));
-  const photos = media.filter((item) => item.type === "photo" && (filter === "All Media" || item.category === filter));
+  const matches = (item: MediaItem) =>
+    (filter === "All Media" || item.category === filter) &&
+    (versionFilter === "all" || item.version === versionFilter);
+  const videos = media.filter((item) => item.type === "video" && matches(item));
+  const photos = media.filter((item) => item.type === "photo" && matches(item));
 
   useEffect(() => {
     if (!selected) return;
