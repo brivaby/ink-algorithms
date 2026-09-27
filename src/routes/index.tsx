@@ -7,7 +7,7 @@ import {
 import { useEffect, useState } from "react";
 
 import { Button } from "../components/ui/button";
-import { archivePhotos } from "../lib/archive-photos";
+import { archivePhotos, extraArchivePhotos } from "../lib/archive-photos";
 
 import img7073 from "../assets/IMG_7073.JPG.asset.json";
 import img7074 from "../assets/IMG_7074.JPG.asset.json";
@@ -140,10 +140,11 @@ const media: MediaItem[] = [
   { id: "PHOTO-09", type: "photo", category: "Electronic Benchwork", image: img7093.url, kicker: "Power electronics", title: "Driver Harness & Power Routing Detail", description: "Second angle on the exposed driver and power harness — the subsystem that feeds both steppers from the 12 V supply.", meta: "Driver Subsystem", metric: "12 V / 5 V Rails" },
   { id: "PHOTO-10", type: "photo", category: "Workshop & Assembly", image: img7096.url, kicker: "Mechanical transmission", title: "Guide Rods & GT2 Belt Drive Mechanism", description: "The motion hardware — smooth guide rods with the GT2 timing belt drive, 2 mm tooth pitch converting stepper rotation into linear travel.", meta: "GT2 Belt Drive", metric: "Pitch: 2.0 mm" },
   { id: "PHOTO-11", type: "photo", category: "Electronic Benchwork", image: img7095.url, kicker: "Team & machine", title: "The Team with the Finished Plotter", description: "Elijah and Derek beside the completed machine and the project display board — the presentation state of the competition build.", meta: "Competition Ready", metric: "UGX 570,700 Build" },
+  ...extraArchivePhotos,
   ...archivePhotos,
 ];
 
-const filters = ["All Media", "Live Plotting Videos", "Workshop & Assembly", "Electronic Benchwork", "Sample Plot Outputs"];
+const filters = ["All Media", "Live Plotting Videos", "Workshop & Assembly", "Electronic Benchwork", "Sample Plot Outputs", "Design & Sourcing"];
 
 function MediaVault() {
   const [filter, setFilter] = useState("All Media");
