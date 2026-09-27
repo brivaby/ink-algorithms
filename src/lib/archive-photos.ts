@@ -34,7 +34,9 @@ export const archivePhotos: ArchivePhoto[] = Object.entries(archiveAssets)
   .map(([path, asset]) => {
     const match = path.match(/IMG_(\d+)\.JPG/);
     const number = match ? Number(match[1]) : 0;
-    const info = details(number);
+    const base = details(number);
+    // IMG_7038 is a screenshot of an online shopping cart, not a process photo.
+    const info = number === 7038 ? { ...base, category: "Shopping Carts", kicker: "Sourcing · Online cart", title: "Online Cart: 400-Point Mini Breadboard", description: "Screenshot of the online store cart used while ordering the mini breadboard for the control circuit.", meta: "Component Sourcing", metric: "Shopping Cart" } : base;
     return {
       id: `ARCHIVE-${number}`,
       type: "photo" as const,
@@ -68,7 +70,7 @@ const sourceTitles: Record<string, string> = {
   "source-10-mf-wires": "Male-to-Female Jumper Wires", "source-11-lcd": "16×2 LCD with I2C Module", "source-12-cart": "LCD, Buttons and microSD Order",
   "source-13-adapter": "12 V 3 A DC Adapter",
 };
-for (const [k, t] of Object.entries(sourceTitles)) extraInfo[k] = { version: "V1" as const, category: "Design & Sourcing", kicker: "Sourcing · Component listing", title: t, description: "Component sourced from local Ugandan electronics suppliers while assembling the plotter's bill of materials.", meta: "Component Sourcing", metric: "Local Supplier" };
+for (const [k, t] of Object.entries(sourceTitles)) extraInfo[k] = { version: "V1" as const, category: "Shopping Carts", kicker: "Sourcing · Online cart", title: t, description: "Component sourced from local Ugandan electronics suppliers while assembling the plotter's bill of materials.", meta: "Component Sourcing", metric: "Local Supplier" };
 extraInfo["plot-01-lettering"] = { version: "V2" as const, category: "Sample Plot Outputs", kicker: "V2 testing · Lettering", title: "Overhead View of a Lettering Plot", description: "Overhead view of the plotter drawing outlined letters with the servo pen holder over paper on the wooden base.", meta: "Plot Output", metric: "Pen on Paper" };
 extraInfo["plot-02-lettering"] = { ...extraInfo["plot-01-lettering"], title: "Pen Carriage Mid-Plot Over Lettering" };
 
