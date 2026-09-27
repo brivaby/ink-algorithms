@@ -70,9 +70,9 @@ extraInfo["plot-01-lettering"] = { category: "Sample Plot Outputs", kicker: "V2 
 extraInfo["plot-02-lettering"] = { ...extraInfo["plot-01-lettering"], title: "Pen Carriage Mid-Plot Over Lettering" };
 
 export const extraArchivePhotos: ArchivePhoto[] = Object.entries(extraAssets)
-  .map(([path, asset]) => {
+  .flatMap(([path, asset]): ArchivePhoto[] => {
     const key = path.split("/").pop()!.replace(".jpg.asset.json", "");
-    return { id: `EXTRA-${key}`, type: "photo" as const, image: asset.url, ...extraInfo[key] };
+    const info = extraInfo[key];
+    return info ? [{ id: `EXTRA-${key}`, type: "photo", image: asset.url, ...info }] : [];
   })
-  .filter((p) => p.title)
   .sort((a, b) => a.id.localeCompare(b.id));
