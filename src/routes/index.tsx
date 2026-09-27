@@ -8,6 +8,17 @@ import { useEffect, useState } from "react";
 
 import { Button } from "../components/ui/button";
 
+import img7092 from "../assets/IMG_7092.JPG.asset.json";
+import img7093 from "../assets/IMG_7093.JPG.asset.json";
+import img7094 from "../assets/IMG_7094.JPG.asset.json";
+import img7095 from "../assets/IMG_7095.JPG.asset.json";
+import img7096 from "../assets/IMG_7096.JPG.asset.json";
+import img7097 from "../assets/IMG_7097.JPG.asset.json";
+import img7098 from "../assets/IMG_7098.JPG.asset.json";
+import lettering from "../assets/media_lettering.jpg.asset.json";
+import rigMidplot from "../assets/media_rig_midplot.jpg.asset.json";
+import workshop from "../assets/media_workshop.jpg.asset.json";
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
