@@ -11,3 +11,4 @@
 
 ## Architecture
 - Keep the media archive as a single route with in-page filtering and modal inspection because it is one cohesive gallery experience.
+- Load the large historical photo collection from eager asset-pointer discovery in `src/lib/archive-photos.ts` to keep the single gallery route maintainable.
