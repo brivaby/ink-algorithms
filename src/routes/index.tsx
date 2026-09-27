@@ -181,6 +181,10 @@ function MediaVault() {
           <div className="border-l-2 border-primary pl-5"><Button variant="dark" className="w-full sm:w-auto"><Download size={15}/> Download Jury Media Kit</Button><p className="mt-3 font-mono text-[10px] uppercase text-muted-foreground">Photos + Report + BOM</p></div>
         </div>
         <div className="flex gap-1 overflow-x-auto py-5" aria-label="Media filters">{filters.map((name) => { const count = name === "All Media" ? media.length : media.filter((item) => item.category === name).length; return <Button key={name} size="sm" variant={filter === name ? "primary" : "ghost"} onClick={() => setFilter(name)} aria-pressed={filter === name}>{name} <span className="opacity-60">[{count}]</span></Button> })}</div>
+        <div className="flex flex-wrap items-center gap-1 border-t border-border py-4" aria-label="Version filters">
+          <span className="mr-2 font-mono text-[10px] font-bold uppercase text-muted-foreground">Machine version:</span>
+          {([["all", "All Versions"], ["V1", "Version 1 — Wooden Prototype"], ["V2", "Version 2 — 3D Printed Parts"]] as const).map(([value, label]) => { const count = value === "all" ? media.length : media.filter((item) => item.version === value).length; return <Button key={value} size="sm" variant={versionFilter === value ? "primary" : "ghost"} onClick={() => setVersionFilter(value)} aria-pressed={versionFilter === value}>{label} <span className="opacity-60">[{count}]</span></Button> })}
+        </div>
       </section>
 
       {videos.length > 0 && <section className="border-y border-border bg-card py-12"><div className="mx-auto max-w-[1440px] px-5 lg:px-10"><SectionTitle icon={<Activity size={18}/>} eyebrow="Plotting run captures" title="Featured Plotting & Calibration Runs" tail="G-CODE // microSD SOURCE"/><div className="mt-7 grid gap-px bg-border md:grid-cols-2">{videos.map((item) => <MediaCard key={item.id} item={item} onOpen={setSelected}/>)}</div></div></section>}
