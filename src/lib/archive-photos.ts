@@ -18,6 +18,11 @@ type ArchivePhoto = {
   metric: string;
 };
 
+const excludedArchiveNumbers = new Set([
+  6868, 6870, 6872, 6875, 6877, 6884, 6885, 6889, 6890, 6907, 6925,
+  6928, 6960, 6962, 7033, 7038, 7060,
+]);
+
 function details(number: number) {
   // Version 1 is the wooden prototype; Version 2 is the rebuild with 3D-printed parts.
   const version = number <= 7077 ? ("V1" as const) : ("V2" as const);
@@ -31,19 +36,18 @@ function details(number: number) {
 }
 
 export const archivePhotos: ArchivePhoto[] = Object.entries(archiveAssets)
-  .map(([path, asset]) => {
+  .flatMap(([path, asset]): ArchivePhoto[] => {
     const match = path.match(/IMG_(\d+)\.JPG/);
     const number = match ? Number(match[1]) : 0;
+    if (excludedArchiveNumbers.has(number)) return [];
     const base = details(number);
-    // IMG_7038 is a screenshot of an online shopping cart, not a process photo.
-    const info = number === 7038 ? { ...base, category: "Shopping Carts", kicker: "Sourcing · Online cart", title: "Online Cart: 400-Point Mini Breadboard", description: "Screenshot of the online store cart used while ordering the mini breadboard for the control circuit.", meta: "Component Sourcing", metric: "Shopping Cart" } : base;
-    return {
+    return [{
       id: `ARCHIVE-${number}`,
       type: "photo" as const,
       image: asset.url,
-      ...info,
-      title: `${info.title} — IMG_${number}`,
-    };
+      ...base,
+      title: `${base.title} — IMG_${number}`,
+    }];
   })
   .sort((a, b) => Number(a.id.split("-")[1]) - Number(b.id.split("-")[1]));
 
