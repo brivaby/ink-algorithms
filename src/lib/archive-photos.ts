@@ -9,6 +9,7 @@ type ArchivePhoto = {
   id: string;
   type: "photo";
   category: string;
+  version: "V1" | "V2";
   image: string;
   kicker: string;
   title: string;
