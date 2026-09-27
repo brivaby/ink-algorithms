@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "../components/ui/button";
 import { archivePhotos, extraArchivePhotos } from "../lib/archive-photos";
+import { captureDates, conventionDate } from "../lib/capture-dates";
 
 import img7073 from "../assets/IMG_7073.JPG.asset.json";
 import img7074 from "../assets/IMG_7074.JPG.asset.json";
@@ -98,7 +99,7 @@ type MediaItem = {
 
 // Ordered by historic creation sequence: Version 1 prototype captures (IMG_7073–7077)
 // first, then the Version 2 rebuild and competition-era documentation.
-const media: MediaItem[] = [
+const unsortedMedia: MediaItem[] = [
   { id: "VID-01", version: "V1" as const, type: "video", category: "Live Plotting Videos", image: v6339Poster.url, video: v6339.url, kicker: "V1 prototype · Floor test", title: "Version 1 Floor Test: Guiding the First Pen Moves", description: "Early Version 1 testing on the floor with the frame taped over paper, the team steadying the carriage while commands are sent from the computer.", meta: "Bench Test", metric: "USB G-code", duration: "00:28" },
   { id: "VID-02", version: "V1" as const, type: "video", category: "Live Plotting Videos", image: v6341Poster.url, video: v6341.url, kicker: "V1 prototype · Carriage run", title: "Version 1 Carriage Run: Belts, Rods and Servo Pen Holder", description: "Close view of the Version 1 frame in motion — steel rods, belt-driven axes and the SG90 servo pen holder moving across the sheet.", meta: "Axis Motion", metric: "SG90 Pen Lift", duration: "00:59" },
   { id: "VID-03", version: "V1" as const, type: "video", category: "Live Plotting Videos", image: v6342Poster.url, video: v6342.url, kicker: "V1 prototype · Axis check", title: "Version 1 Axis Check: Moving the Carriage by Hand", description: "Hand-moving the Version 1 carriage to check travel and alignment of the rails before a powered run.", meta: "Travel Check", metric: "99 × 224 mm Area", duration: "00:38" },
@@ -144,7 +145,25 @@ const media: MediaItem[] = [
   ...archivePhotos,
 ];
 
-const filters = ["All Media", "Live Plotting Videos", "Workshop & Assembly", "Electronic Benchwork", "Sample Plot Outputs", "Design & Sourcing"];
+// Tell the build story in the order things were captured, using original photo/video metadata.
+function takenAt(item: MediaItem) {
+  if (item.id === "VID-26") return conventionDate;
+  const n = (item.video ?? item.image).match(/IMG_(\d+)/)?.[1];
+  const date = n ? captureDates[Number(n)] : undefined;
+  if (date) return date;
+  if (item.id.startsWith("EXTRA-")) return "0000"; // design and sourcing come before the build
+  return item.version === "V1" ? "2026-08-20T23:59" : "9999";
+}
+function formatTaken(item: MediaItem) {
+  const t = takenAt(item);
+  if (!/^\d{4}-/.test(t) || t.endsWith("23:59")) return null;
+  return new Date(t).toLocaleString("en-GB", { day: "numeric", month: "short", year: "numeric", hour: "2-digit", minute: "2-digit" });
+}
+const media: MediaItem[] = unsortedMedia
+  .map((item) => { const when = formatTaken(item); return when ? { ...item, kicker: `${when} · ${item.kicker}` } : item; })
+  .sort((a, b) => takenAt(a).localeCompare(takenAt(b)));
+
+const filters = ["All Media", "Live Plotting Videos", "Workshop & Assembly", "Electronic Benchwork", "Sample Plot Outputs", "Design & Sourcing", "Shopping Carts"];
 
 function MediaVault() {
   const [filter, setFilter] = useState("All Media");
