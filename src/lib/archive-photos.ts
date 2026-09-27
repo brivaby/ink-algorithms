@@ -66,9 +66,9 @@ const sourceTitles: Record<string, string> = {
   "source-04-cnc-shield": "CNC Shield V3", "source-05-a4988": "A4988 Stepper Driver", "source-06-jumpers": "2.54 mm Shunt Jumpers",
   "source-07-psu": "12 V Power Supply Adapter", "source-08-breadboard": "400-Point Mini Breadboard", "source-09-ff-wires": "Female-to-Female Jumper Wires",
   "source-10-mf-wires": "Male-to-Female Jumper Wires", "source-11-lcd": "16×2 LCD with I2C Module", "source-12-cart": "LCD, Buttons and microSD Order",
-  "source-13-adapter": "12 V 3 A DC Adapter", "source-14-receipt": "Component Purchase Receipt", "source-15-receipt": "Electronics Shop Receipt",
+  "source-13-adapter": "12 V 3 A DC Adapter",
 };
-for (const [k, t] of Object.entries(sourceTitles)) extraInfo[k] = { version: "V1" as const, category: "Design & Sourcing", kicker: k.includes("receipt") ? "Sourcing · Purchase record" : "Sourcing · Component listing", title: t, description: k.includes("receipt") ? "Purchase record kept while buying components for the plotter from local electronics suppliers." : "Component sourced from local Ugandan electronics suppliers while assembling the plotter's bill of materials.", meta: "Component Sourcing", metric: "Local Supplier" };
+for (const [k, t] of Object.entries(sourceTitles)) extraInfo[k] = { version: "V1" as const, category: "Design & Sourcing", kicker: "Sourcing · Component listing", title: t, description: "Component sourced from local Ugandan electronics suppliers while assembling the plotter's bill of materials.", meta: "Component Sourcing", metric: "Local Supplier" };
 extraInfo["plot-01-lettering"] = { version: "V2" as const, category: "Sample Plot Outputs", kicker: "V2 testing · Lettering", title: "Overhead View of a Lettering Plot", description: "Overhead view of the plotter drawing outlined letters with the servo pen holder over paper on the wooden base.", meta: "Plot Output", metric: "Pen on Paper" };
 extraInfo["plot-02-lettering"] = { ...extraInfo["plot-01-lettering"], title: "Pen Carriage Mid-Plot Over Lettering" };
 
