@@ -19,6 +19,8 @@ type ArchivePhoto = {
 };
 
 function details(number: number) {
+  // Version 1 is the wooden prototype; Version 2 is the rebuild with 3D-printed parts.
+  const version = number <= 7077 ? ("V1" as const) : ("V2" as const);
   if (number <= 6866) return { category: "Workshop & Assembly", kicker: "Fabrication · CNC routing", title: "CNC Workshop and Router Setup", description: "Historical record of the team preparing the CNC router, controls and wooden stock used to fabricate the plotter chassis.", meta: "CNC Fabrication", metric: "Wooden Components" };
   if (number <= 6905) return { category: "Workshop & Assembly", kicker: "Fabrication · Parts finishing", title: "Cutting, Removing and Finishing Chassis Parts", description: "The team removes, inspects and hand-finishes routed wooden components before bringing them into the assembly workshop.", meta: "Parts Preparation", metric: "Historical Build" };
   if (number <= 6929) return { category: "Workshop & Assembly", kicker: "Workshop · Chassis assembly", title: "Wooden Chassis Measuring and Assembly", description: "Progress photography of measuring, drilling and joining the wooden base and frame components for the first plotter build.", meta: "Frame Assembly", metric: "Hand Tools" };
