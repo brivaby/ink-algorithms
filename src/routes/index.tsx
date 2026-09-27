@@ -1,8 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  Activity, Archive, BatteryCharging, Camera, ChevronRight, CirclePause, Download,
-  Gauge, Grid3X3, Image as ImageIcon, Maximize, Pause, Play, RotateCcw, Ruler,
-  SlidersHorizontal, Volume2, X, ZoomIn,
+  Activity, Archive, BatteryCharging, Camera, ChevronRight, Download,
+  Gauge, Grid3X3, Image as ImageIcon, Play, Ruler,
+  SlidersHorizontal, X, ZoomIn,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
