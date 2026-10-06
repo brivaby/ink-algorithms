@@ -19,7 +19,8 @@
  */
 
 @theme inline {
-  --font-sans: "IBM Plex Sans", sans-serif;
+  --font-sans: "Manrope", sans-serif;
+  --font-heading: "Sora", sans-serif;
   --font-mono: "IBM Plex Mono", monospace;
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -68,30 +69,30 @@
 }
 
 :root {
-  --radius: 0.25rem;
-  --background: oklch(0.972 0.008 83);
-  --foreground: oklch(0.2 0.022 235);
-  --card: oklch(0.995 0.003 85);
-  --card-foreground: oklch(0.2 0.022 235);
+  --radius: 0.1875rem;
+  --background: oklch(0.995 0.002 250);
+  --foreground: oklch(0.235 0.069 251);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.235 0.069 251);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.58 0.17 48);
-  --primary-foreground: oklch(0.99 0.005 85);
-  --secondary: oklch(0.91 0.02 82);
-  --secondary-foreground: oklch(0.22 0.02 235);
-  --muted: oklch(0.93 0.009 83);
-  --muted-foreground: oklch(0.47 0.024 235);
-  --accent: oklch(0.9 0.038 83);
-  --accent-foreground: oklch(0.22 0.02 235);
+  --primary: oklch(0.48 0.19 340);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.958 0.018 255);
+  --secondary-foreground: oklch(0.235 0.069 251);
+  --muted: oklch(0.972 0.003 250);
+  --muted-foreground: oklch(0.51 0.025 250);
+  --accent: oklch(0.82 0.14 184);
+  --accent-foreground: oklch(0.235 0.069 251);
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.78 0.015 78);
-  --input: oklch(0.78 0.015 78);
-  --ring: oklch(0.58 0.17 48);
-  --console: oklch(0.19 0.024 235);
-  --console-foreground: oklch(0.94 0.015 82);
-  --signal: oklch(0.73 0.16 79);
-  --signal-soft: oklch(0.93 0.055 85);
+  --border: oklch(0.91 0.008 250);
+  --input: oklch(0.91 0.008 250);
+  --ring: oklch(0.48 0.19 340);
+  --console: oklch(0.235 0.069 251);
+  --console-foreground: oklch(0.985 0.003 250);
+  --signal: oklch(0.82 0.14 184);
+  --signal-soft: oklch(0.965 0.025 190);
   --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
@@ -153,9 +154,9 @@
     font-family: var(--font-sans);
     margin: 0;
     min-width: 320px;
-    background-image: linear-gradient(color-mix(in oklab, var(--border) 28%, transparent) 1px, transparent 1px), linear-gradient(90deg, color-mix(in oklab, var(--border) 20%, transparent) 1px, transparent 1px);
-    background-size: 32px 32px;
   }
+
+  h1, h2, h3 { font-family: var(--font-heading); }
 
   button, a { cursor: pointer; }
   ::selection { background: var(--color-signal); color: var(--color-console); }
